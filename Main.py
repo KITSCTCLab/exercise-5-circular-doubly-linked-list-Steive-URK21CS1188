@@ -56,14 +56,28 @@ class DoublyCircularLinkedList:
         
     def get(self, index) -> int:
         # Write code here
-        temp=Node()
-        temp=
+        return index.data
+        
     def delete_at_index(self, index) -> bool:
         # Write code here
-
+        temp=Node()
+        if index.previous==NULL:
+            front=index.next
+            front.previous=NULL
+        elif index.next==NULL:
+            end=index.previous
+            end.next=NULL
+        else:
+            index.previous.next=index.next
+            index.next.previous=index.previous
+        temp.remove(index)
+        if index.previous!=NULL:
+            return True
+        else:
+            return False
     def get_previous_next(self, index) -> list:
         # Write code here
-
+        
 
 # Do not change the following code
 operations = []
