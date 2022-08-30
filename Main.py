@@ -15,8 +15,8 @@ class DoublyCircularLinkedList:
         temp = Node()
         temp.data = data
         temp.prev = end
-        temp.next = NULL
-        if end == NULL:
+        temp.next = None
+        if end == None:
             front = temp
         else:
             end.next = temp
@@ -29,9 +29,9 @@ class DoublyCircularLinkedList:
         # Write code here
         temp=Node()
         temp.data=data
-        temp.previous=NULL
+        temp.previous=None
         temp.next=front
-        if front==NULL:
+        if front==None:
             end=temp
         else:
             front.previous=temp
@@ -47,7 +47,7 @@ class DoublyCircularLinkedList:
         temp.previous=index
         temp.next=index.next
         index.next=temp
-        if index.next==NULL:
+        if index.next==None:
             end=temp
         if end==temp:
             return True
@@ -61,24 +61,24 @@ class DoublyCircularLinkedList:
     def delete_at_index(self, index) -> bool:
         # Write code here
         temp=Node()
-        if index.previous==NULL:
+        if index.previous==None:
             front=index.next
-            front.previous=NULL
-        elif index.next==NULL:
+            front.previous=None
+        elif index.next==None:
             end=index.previous
-            end.next=NULL
+            end.next=None
         else:
             index.previous.next=index.next
             index.next.previous=index.previous
         temp.remove(index)
-        if index.previous!=NULL:
+        if index.previous!=None:
             return True
         else:
             return False
     def get_previous_next(self, index) -> list:
         # Write code here
         index=front
-        while(index!=NULL):
+        while(index!=None):
             return index.data
             index=index.next
 
