@@ -29,7 +29,7 @@ class DoublyCircularLinkedList:
         # Write code here
         temp=Node()
         temp.data=data
-        temp.previous=Null
+        temp.previous=NULL
         temp.next=front
         if front==NULL:
             end=temp
