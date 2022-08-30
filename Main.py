@@ -77,7 +77,10 @@ class DoublyCircularLinkedList:
             return False
     def get_previous_next(self, index) -> list:
         # Write code here
-        
+        index=front
+        while(index!=NULL):
+            return index.data
+            index=index.next
 
 # Do not change the following code
 operations = []
