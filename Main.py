@@ -60,7 +60,7 @@ class DoublyCircularLinkedList:
     def delete_at_index(self, index) -> bool:
         # Write code here
          temp = self.head
-        if(temp.next != None):
+         if(temp.next != None):
             if(temp == index):
                 temp.next.previous = None
                 self.head = temp.next
@@ -81,7 +81,7 @@ class DoublyCircularLinkedList:
                     temp.previous = None
                 return True
 
-        if (temp == None):
+         if (temp == None):
             return False
        
     def get_previous_next(self, index) -> list:
