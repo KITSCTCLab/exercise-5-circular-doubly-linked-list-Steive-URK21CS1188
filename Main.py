@@ -12,31 +12,27 @@ class DoublyCircularLinkedList:
 
     def add_at_tail(self, data) -> bool:
         # Write code here
-        temp = Node()
-        temp.data = data
-        temp.prev = end
-        temp.next = None
-        if end == None:
-            front = temp
-        else:
-            end.next = temp
-        end = temp
-        if end==temp:
+        newNode = Node(data)
+        temp = self.head
+        while(temp.next != None):
+            temp = temp.next
+        temp.next = newNode
+        newNode.previous = temp
+        if newNode.previous == temp:
             return True
         else:
             return False
     def add_at_head(self, data) -> bool:
         # Write code here
-        temp=Node()
-        temp.data=data
-        temp.previous=None
-        temp.next=front
-        if front==None:
-            end=temp
+        if self.head == None:
+            newNode = Node(data)
+            self.head = newNode
         else:
-            front.previous=temp
-        front=temp
-        if front==temp:
+            newNode = Node(data)
+            self.head.previous = newNode
+            newNode.next = self.head
+            self.head = newNode
+        if self.head == newNode:
             return True
         else:
             return False
@@ -63,27 +59,41 @@ class DoublyCircularLinkedList:
         
     def delete_at_index(self, index) -> bool:
         # Write code here
-        temp=Node()
-        if index.previous==None:
-            front=index.next
-            front.previous=None
-        elif index.next==None:
-            end=index.previous
-            end.next=None
-        else:
-            index.previous.next=index.next
-            index.next.previous=index.previous
-        temp.remove(index)
-        if index.previous!=None:
-            return True
-        else:
+         temp = self.head
+        if(temp.next != None):
+            if(temp == index):
+                temp.next.previous = None
+                self.head = temp.next
+                temp.next = None
+                return True
+            else:
+                while(temp.next != None):
+                    if(temp == index):
+                        break
+                    temp = temp.next
+                if(temp.next):
+                    temp.previous.next = temp.next
+                    temp.next.previous = temp.previous
+                    temp.next = None
+                    temp.previous = None
+                else:
+                    temp.previous.next = None
+                    temp.previous = None
+                return True
+
+        if (temp == None):
             return False
+       
     def get_previous_next(self, index) -> list:
         # Write code here
-        index=front
         while(index!=None):
             return index.data
             index=index.next
+#         temp = self.head
+#         while(temp != None):
+#             return temp.data
+#             temp = temp.next
+
 
 # Do not change the following code
 operations = []
