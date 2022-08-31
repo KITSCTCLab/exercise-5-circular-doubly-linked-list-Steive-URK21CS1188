@@ -38,10 +38,10 @@ class DoublyCircularLinkedList:
             return False
     def add_at_index(self, index, data) -> bool:
         # Write code here
-        temp=Node()
+        temp=Node(data)
         temp.data=data
         temp.previous=index
-        temp.next=index+1
+        temp.next=index.next
         index.next=temp
         if index.next==None:
             end=temp
