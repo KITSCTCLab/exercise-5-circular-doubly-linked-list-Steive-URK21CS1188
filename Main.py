@@ -41,7 +41,7 @@ class DoublyCircularLinkedList:
         temp=Node()
         temp.data=data
         temp.previous=index
-        temp.next=index.next
+        temp.next=index+1
         index.next=temp
         if index.next==None:
             end=temp
